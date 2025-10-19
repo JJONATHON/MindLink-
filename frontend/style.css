@@ -1,0 +1,80 @@
+.hidden { display: none; }
+
+/* === Bigger chat box & comfy typing area === */
+#chatbox {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 460px;
+  height: 70vh;
+  z-index: 1001;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+#messages {
+  padding: 14px;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Make \n show as real line breaks on ALL screens */
+#messages div {
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 90%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+
+#user-input {
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px 14px;
+  height: 46px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+#send {
+  padding: 12px 16px;
+  font-size: 0.98rem;
+  border: none;
+  border-radius: 6px;
+  background: #0078ff;
+  color: white;
+  cursor: pointer;
+}
+
+#chat-button {
+  padding: 16px 28px;
+  font-size: 1rem;
+  background: #d88bd1;
+  color: #1b0202;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Mobile layout tweaks */
+@media (max-width: 640px) {
+  #chatbox {
+    right: 12px;
+    bottom: 90px;
+    width: 92vw;
+    height: 60vh;
+  }
+}

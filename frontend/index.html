@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AlgoNova Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Single launch button -->
+  <button id="chat-button">Chat</button>
+
+  <!-- Chatbox -->
+  <div id="chatbox" class="hidden">
+    <div id="messages"></div>
+
+    <div class="controls">
+      <input id="user-input" type="text" placeholder="Type a message..." autocomplete="off" />
+      <button id="send">Send</button>
+      <button id="reset">Reset</button>
+    </div>
+  </div>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
