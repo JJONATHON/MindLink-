@@ -23,16 +23,28 @@ async function sendMessage() {
   addMessage("bot", "Typing...");
 
   try {
-    const response = await fetch("http://localhost:5000/chat", {
+    // Use same-origin so the script works whether served by Flask or a static server
+    const response = await fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message }),
     });
 
+    if (!response.ok) {
+      const text = await response.text().catch(() => "");
+      console.error("Server error:", response.status, text);
+      document.querySelectorAll(".bot").forEach(el => el.remove());
+      addMessage("bot", "⚠️ Server error. Please try again.");
+      return;
+    }
+
     const data = await response.json();
+    // Remove the temporary "Typing..." bubbles and show the real reply
     document.querySelectorAll(".bot").forEach(el => el.remove());
-    addMessage("bot", data.reply);
+    addMessage("bot", data.reply || "(No reply)");
   } catch (err) {
+    console.error("Network error:", err);
+    document.querySelectorAll(".bot").forEach(el => el.remove());
     addMessage("bot", "⚠️ Error connecting to server.");
   }
 }

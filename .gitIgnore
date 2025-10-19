@@ -1,1 +1,14 @@
+# Node / Front-end
+node_modules/
+dist/
+build/
+*.log
+
+# Env/keys
 .env
+*.key
+
+# OS/Editor
+.DS_Store
+.vscode/
+*.swp
